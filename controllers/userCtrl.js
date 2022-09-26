@@ -96,7 +96,7 @@ const userCtrl = {
   getUser: async (req, res) => {
     try {
       const user = await Users.findById(req.user.id).select("-password");
-      if (!user) return res.status(400).json({ msg: "Users does not exist" });
+      if (!user) return res.status(400).json({ msg: "Không tồn tại user" });
       res.json(user);
     } catch (err) {
       return res.status(500).json({ msg: err.message });

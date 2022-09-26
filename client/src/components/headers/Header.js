@@ -89,7 +89,7 @@ function Header() {
       ) : (
         <div className="cart-icon">
           <span>{cart.length}</span>
-          <Link to="/cart">
+          <Link to={isLogged ? "/cart" : "#!"}>
             <img src={Cart} alt="" width="30" />
           </Link>
         </div>

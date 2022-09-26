@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { GlobalState } from "../../../GlobalState";
+
 function Cart() {
   const state = useContext(GlobalState);
   const [cart, setCart] = state.userAPI.cart;
@@ -43,8 +45,6 @@ function Cart() {
   const decrement = (id) => {
     cart.forEach((item) => {
       if (item._id === id) {
-        // item.quantity === 1 ? item.quantity === 1 : (item.quantity -= 1);
-
         if (item.quantity === 1) {
           return item.quantity === 1;
         } else item.quantity -= 1;
@@ -55,7 +55,7 @@ function Cart() {
   };
 
   const removeProduct = (id) => {
-    if (window.confirm("Are you sure you want to remove")) {
+    if (window.confirm("Bạn có muốn xóa ?")) {
       cart.forEach((item, index) => {
         if (item._id === id) {
           cart.splice(index, 1);
@@ -76,47 +76,50 @@ function Cart() {
     );
   return (
     <div>
-      {cart.map((product) => (
-        <div className="detail" key={product._id}>
-          <img src={product.images.url} alt="" />
-          <div className="box_detail">
-            <div className="row">
-              <h2>{product.title}</h2>
-            </div>
-            <span>$ {product.price * product.quantity}</span>
-            <p>{product.description}</p>
-            <p>Sold: {product.sold}</p>
-            <div className="amount">
-              <button
-                onClick={() => {
-                  decrement(product._id);
-                }}
-              >
-                -
-              </button>
-              <span>{product.quantity}</span>
-              <button
-                onClick={() => {
-                  increment(product._id);
-                }}
-              >
-                +
-              </button>
-            </div>
-            <div className="delete">
-              <button
-                onClick={() => {
-                  removeProduct(product._id);
-                }}
-              >
-                Delete
-              </button>
+      {cart.length > 0 &&
+        cart.map((product) => (
+          <div className="detail" key={product._id}>
+            <img src={product.images.url} alt="" />
+            <div className="box_detail">
+              <div className="row">
+                <h2>{product.title}</h2>
+              </div>
+              <span>$ {product.price * product.quantity}</span>
+              <p>{product.description}</p>
+              <div className="amount">
+                <button
+                  onClick={() => {
+                    decrement(product._id);
+                  }}
+                >
+                  -
+                </button>
+                <span>{product.quantity}</span>
+                <button
+                  onClick={() => {
+                    increment(product._id);
+                  }}
+                >
+                  +
+                </button>
+              </div>
+              <div className="delete">
+                <button
+                  onClick={() => {
+                    removeProduct(product._id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
       <div className="total">
         <h3 style={{ color: "red" }}>Total : {total} VnĐ</h3>
+        <button>
+          <Link to="/">Tiếp tục mua sắm</Link>
+        </button>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ function DetailProduct() {
   const params = useParams();
   const state = useContext(GlobalState);
   const addCart = state.userAPI.addCart;
+  const [isLogged] = state.userAPI.isLogged;
   const [products] = state.productsAPI.products;
   const [detailProduct, setDetailProduct] = useState([]);
 
@@ -32,7 +33,7 @@ function DetailProduct() {
           {/* <p>Sold: {detailProduct.sold}</p> */}
 
           <Link
-            to="/login"
+            to={isLogged ? "/cart" : "/login"}
             onClick={() => {
               addCart(detailProduct);
             }}

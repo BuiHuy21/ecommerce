@@ -1,13 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 
 function UserAPI(token) {
   const [isLogged, setIsLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [cart, setCart] = useState([]);
-
-  // const history = useNavigate();
 
   useEffect(() => {
     if (token) {
@@ -18,10 +15,11 @@ function UserAPI(token) {
               Authorization: token,
             },
           });
+
           setIsLogged(true);
           res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
+
           setCart(res.data.cart);
-          //   console.log(res);
         } catch (err) {
           alert(err.response.data.msg);
         }

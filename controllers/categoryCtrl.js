@@ -16,11 +16,13 @@ const categoryCtrl = {
       const { name } = req.body;
       const category = await Category.findOne({ name });
       if (category)
-        return res.status(400).json({ msg: "This category is already" });
+        return res
+          .status(400)
+          .json({ msg: "Đã tồn tại ,vui lòng thử lại tên khác" });
 
       const newCategory = new Category({ name });
       await newCategory.save();
-      res.json({ msg: "created a category" });
+      res.json({ msg: "Tạo thành công" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

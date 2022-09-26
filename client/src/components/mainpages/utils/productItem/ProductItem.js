@@ -56,8 +56,8 @@ function ProductItem({
             <Button type="default">
               <Link
                 id="btn_buy"
-                to="/login"
-                onClick={() => addCart(products._id)}
+                to={isLogged ? "/cart" : "/login"}
+                onClick={() => addCart(products)}
               >
                 Add
               </Link>
