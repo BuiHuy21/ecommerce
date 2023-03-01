@@ -1,63 +1,63 @@
-header{
-        min-height: 100px;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        flex-wrap: wrap;
+header {
+        min-height     : 100px;
+        width          : 100%;
+        overflow       : hidden;
+        display        : flex;
+        flex-wrap      : wrap;
         justify-content: space-around;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-        box-shadow: 0 2px 0 #555;
+        align-items    : center;
+        border-bottom  : 1px solid #ddd;
+        box-shadow     : 0 2px 0 #555;
 }
 
 
-.text{
-        letter-spacing:8px;
-        background-image: url(../headers/icon/pexels-photo-395044.jpeg);
-        -webkit-background-clip:text;
-        font-size: 30px;
-        font-weight: bold;
-        color:transparent;
-        cursor: pointer;
+.text {
+        letter-spacing         : 3px;
+        background-image       : url(../headers/icon/pexels-photo-395044.jpeg);
+        -webkit-background-clip: text;
+        font-size              : 30px;
+        font-weight            : bold;
+        color                  : transparent;
+        cursor                 : pointer;
 }
 
-header .logo{
+header .logo {
         flex: 1;
 }
 
-header a{
+header a {
         /* text-transform: uppercase; */
-        color: #555;
+        color      : #555;
         font-weight: bold;
 }
 
-header ul li{
-        display: inline-block;
-        opacity: 0.8;
-        padding:0 20px;
-        letter-spacing: 3px;
+header ul li {
+        display       : inline-block;
+        opacity       : 0.8;
+        padding       : 0 20px;
+        letter-spacing: 2px;
 }
 
-header ul li:hover{
-       opacity: 1; 
+header ul li:hover {
+        opacity: 1;
 }
 
-.menu{
+.menu {
         display: none;
 }
 
-.cart-icon{
-        position: relative;
+.cart-icon {
+        position    : relative;
         margin-right: 20px;
 }
 
 .cart-icon span {
         background-color: crimson;
-        border-radius: 80%;
-        color: white;
-        position: absolute;
-        top:-10px;
-        right:-12px;
-        padding:5px 7px;
-        font-size: 10px;
+        border-radius   : 80%;
+        color           : white;
+        position        : absolute;
+        top             : -10px;
+        right           : -12px;
+        padding         : 5px 7px;
+        font-size       : 10px;
 }

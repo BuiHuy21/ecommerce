@@ -57,7 +57,7 @@ function Header() {
       <div className="logo">
         <Link to="/">
           {" "}
-          <span className="text">{isAdmin ? "Admin" : "Vel'koz-Shop"}</span>
+          <span className="text">{isAdmin ? "Admin" : "E-ecommerce"}</span>
         </Link>
       </div>
       <ul style={styleMenu}>

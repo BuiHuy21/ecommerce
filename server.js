@@ -26,17 +26,14 @@ app.use("/api", require("./routes/productRouter"));
 //connnect to mongoose
 
 const URI = process.env.MONGODB_URL;
-mongoose.connect(
-  URI,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) throw err;
-    console.log("Connected to MongoDB");
-  }
-);
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
